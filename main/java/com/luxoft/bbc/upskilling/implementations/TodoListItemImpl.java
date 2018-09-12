@@ -21,7 +21,7 @@ public class TodoListItemImpl implements Tooglable {
         this.title = title;
     }
 
-    public booleanIsToogled(){
+    public boolean IsToogled(){
         return toogled;
     }
 

@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class TodoListItemImplTest {
 
     protected TodoListItemImpl todoItem;
+    protected String title;
 
     @BeforeAll
     public static void setUpGlobal(){
@@ -16,12 +17,29 @@ class TodoListItemImplTest {
 
     @BeforeEach
     public void setUp(){
-        String title = "Test";
+        title = "Test";
         todoItem = new TodoListItemImpl(title);
+    }
+//
+//    @Test
+//    public void todoItemIsNotNUllAfterCreation() {
+//    }
+
+    @Test
+    public void itemHasAssignedTitleAfterCreation(){
+        Assertions.assertTrue(title.equalsIgnoreCase(todoItem.getTitle()));
     }
 
     @Test
-    void todoItemIsNotNUllAfterCreation() {
+    public void itemHasNewTitleTitleAfterCreation() {
+        String newTitle = "New";
+        todoItem.setTitle(newTitle);
+        Assertions.assertTrue(()->newTitle.equalsIgnoreCase(todoItem.getTitle()));
+    }
+
+    @Test
+    public void todoItemIsNotNullAfterCreation(){
+        Assertions.assertNotNull(todoItem);
     }
 
     @AfterEach
