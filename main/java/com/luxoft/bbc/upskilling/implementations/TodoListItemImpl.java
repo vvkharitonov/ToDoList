@@ -9,6 +9,8 @@ public class TodoListItemImpl implements Tooglable {
     private boolean toogled;
 
     public TodoListItemImpl(String title) {
+        if (title == "")
+            throw new IllegalArgumentException("n must be positive");
         this.title = title;
         toogled=false;
     }
@@ -18,16 +20,20 @@ public class TodoListItemImpl implements Tooglable {
     }
 
     public void setTitle(String title) {
+        if (title == "")
+            throw new IllegalArgumentException("n must be positive");
         this.title = title;
     }
 
-    public boolean IsToogled(){
+    public boolean isToggled(){
         return toogled;
     }
 
     @Override
-    public void toogle()
-    {}
+    public void toggle()
+    {
+        toogled=!toogled;
+    }
 
 
 }
