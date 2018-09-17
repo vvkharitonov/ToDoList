@@ -4,7 +4,10 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -27,6 +30,10 @@ public class SimpleSeleniumTest {
         String address ="http://www.google.com";
         webDriver.get(address);
         Assertions.assertTrue(webDriver.getTitle().equals("Google"));
+        WebElement searchField = webDriver.findElement(By.name("q"));
+        searchField.sendKeys("Selenium"+ Keys.ENTER);
+        Assertions.assertTrue(webDriver.getTitle().contains("Selenium"));
+
     }
 
 
