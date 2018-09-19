@@ -31,7 +31,11 @@ public class SimpleSeleniumTest {
         webDriver.get(address);
         Assertions.assertTrue(webDriver.getTitle().equals("Google"));
         WebElement searchField = webDriver.findElement(By.name("q"));
-        searchField.sendKeys("Selenium"+ Keys.ENTER);
+//        searchField.sendKeys("Selenium"+ Keys.ENTER);
+        searchField.sendKeys("Selenium");
+        searchField.submit();
+
+
         Assertions.assertTrue(webDriver.getTitle().contains("Selenium"));
 
     }
